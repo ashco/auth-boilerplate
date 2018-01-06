@@ -4,7 +4,8 @@ var bodyParser = require('body-parser');
 var express = require('express');
 var ejsLayouts = require('express-ejs-layouts');
 var flash = require('connect-flash');
-var passport = require('./config/passportConfig.js')
+var isLoggedIn = require('./middleware/isLoggedIn.js');
+var passport = require('./config/passportConfig.js');
 var session = require('express-session');
 var app = express();
 
@@ -33,7 +34,7 @@ app.get('/', function(req, res){
   res.render('home.ejs');
 });
 
-app.get('/profile', function(req, res){
+app.get('/profile', isLoggedIn, function(req, res){
   res.render('profile.ejs');
 });
 

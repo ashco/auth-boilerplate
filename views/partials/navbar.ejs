@@ -14,15 +14,18 @@
     <!-- Define the links -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav navbar-right">
+        <% if(!currentUser){ %>
         <li>
           <a href="/auth/login">Login</a>
         </li>
         <li>
           <a href="/auth/signup">Sign Up</a>
         </li>
+        <% } else { %>
         <li>
           <a href="/auth/logout">Logout</a>
         </li>
+        <% } %>
       </ul>
     </div>
   </div>
